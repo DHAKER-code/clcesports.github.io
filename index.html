@@ -1,148 +1,121 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CLC Esports</title>
+  <title>CLC Esports - Multi-language & Teams</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
       color: #eee;
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      text-align: left;
     }
-
-    header {
-      background-color: #000;
-      text-align: center;
-      padding: 15px 10px;
+    header, nav, main, footer {
+      max-width: 1000px;
+      margin: auto;
+      padding: 15px;
     }
-
-    header img {
-      max-width: 200px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    nav {
-      background-color: #0ff6d2;
-      box-shadow: 0 4px 6px rgba(0, 255, 234, 0.3);
-    }
-
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 25px;
-      padding: 10px 0;
-    }
-
-    nav ul li a {
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #00c4b4;
-    }
-
-    .banner {
-      width: 100%;
-      max-height: 300px;
-      overflow: hidden;
-      margin-bottom: 30px;
-    }
-
-    .banner img {
-      width: 100%;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-    }
-
-    main {
-      flex: 1;
-      max-width: 1000px;
-      margin: 0 auto 30px;
-      padding: 0 15px;
-      text-align: center;
-    }
-
-    main h1 {
-      color: #0ff6d2;
-      margin-bottom: 10px;
-      font-size: 2.5rem;
-    }
-
-    main p {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
-
-    .gallery {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
+      gap: 15px;
+      padding: 0;
       flex-wrap: wrap;
     }
-
-    .gallery img {
-      max-width: 300px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 10px rgba(0, 255, 234, 0.3);
-      transition: transform 0.3s ease;
+    nav ul li a {
+      color: #0ff6d2;
+      font-weight: bold;
+      text-decoration: none;
       cursor: pointer;
     }
-
-    .gallery img:hover {
-      transform: scale(1.05);
+    nav ul li a:hover {
+      text-decoration: underline;
     }
-
-    footer {
-      background-color: #000;
-      text-align: center;
-      padding: 15px 10px;
-      color: #555;
+    .lang-switcher {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #0ff6d2;
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .lang-switcher button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+      padding: 5px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
       font-size: 14px;
-      border-top: 1px solid #0ff6d2;
+      transition: background 0.3s;
     }
-
-    /* زر تواصل */
-    .btn-discord {
-      background-color: #7289da;
+    .lang-switcher button:hover, .lang-switcher button.active {
+      background: #005f55;
       color: white;
-      padding: 12px 25px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    main section {
+      margin-bottom: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #444;
+      text-align: center;
+    }
+    th {
+      background-color: #0ff6d2;
+      color: #000;
+    }
+    tr:hover {
+      background-color: #333;
+    }
+    a.btn-discord {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0ff6d2;
+      color: #000;
+      font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      display: inline-block;
-      margin-top: 20px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s;
     }
-
-    .btn-discord:hover {
-      background-color: #5b6eae;
+    a.btn-discord:hover {
+      background-color: #00bfa3;
     }
   </style>
 </head>
 <body>
+
+<div class="lang-switcher">
+  <button data-lang="en" class="active" title="English">EN</button>
+  <button data-lang="ar" title="العربية">AR</button>
+  <button data-lang="fr" title="Français">FR</button>
+  <button data-lang="es" title="Español">ES</button>
+  <button data-lang="de" title="Deutsch">DE</button>
+</div>
 
 <header>
   <img src="https://i.postimg.cc/43vGnLVq/CLC.jpg" alt="CLC Logo" />
@@ -150,41 +123,171 @@
 
 <nav>
   <ul>
-    <li><a href="#about">من نحن</a></li>
-    <li><a href="#gallery">الفريق</a></li>
-    <li><a href="#contact">تواصل معنا</a></li>
+    <li><a href="#about" data-key="nav_about">About Us</a></li>
+    <li><a href="#games" data-key="nav_games">Games</a></li>
+    <li><a href="#fortnite-players" data-key="nav_fortnite">Fortnite Players</a></li>
+    <li><a href="#contact" data-key="nav_contact">Contact</a></li>
   </ul>
 </nav>
 
-<div class="banner">
-  <img src="https://i.postimg.cc/kGvwbSfn/clc-banner-2.png" alt="CLC Banner" />
-</div>
-
 <main>
   <section id="about">
-    <h1>CLC Esports</h1>
-    <p>فريق CLC Esports هو فريق محترف للرياضات الإلكترونية يضم لاعبين مميزين يشاركون في بطولات عالمية ويقدمون أفضل أداء.</p>
+    <h1 data-key="main_title">CLC Esports</h1>
+    <p data-key="main_description">
+      CLC Esports is a professional esports team with outstanding players competing in global tournaments and delivering top performance.
+    </p>
   </section>
 
-  <section id="gallery">
-    <h2>أعضاء الفريق</h2>
-    <div class="gallery">
-      <img src="https://i.postimg.cc/43vGnLVq/CLC.jpg" alt="عضو الفريق 1" title="عضو الفريق 1" />
-      <img src="https://i.postimg.cc/kGvwbSfn/clc-banner-2.png" alt="عضو الفريق 2" title="عضو الفريق 2" />
-    </div>
+  <section id="games">
+    <h2 data-key="games_title">Our Games</h2>
+    <ul>
+      <li data-key="game_1">Fortnite</li>
+      <li data-key="game_2">Valorant</li>
+      <li data-key="game_3">Rocket League</li>
+      <li data-key="game_4">League of Legends</li>
+      <li data-key="game_5">Call of Duty</li>
+    </ul>
+  </section>
+
+  <section id="fortnite-players">
+    <h2 data-key="players_title">Fortnite Players</h2>
+    <table>
+      <thead>
+        <tr>
+          <th data-key="col_name">Name</th>
+          <th data-key="col_pr">PR</th>
+          <th data-key="col_earn">Earnings</th>
+          <th data-key="col_nation">Nation</th>
+          <th data-key="col_age">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>funky</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+        <tr><td>nexxus</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+        <tr><td>bee</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+        <tr><td>mm</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+        <tr><td>zac</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <section id="contact">
-    <h2>تواصل معنا</h2>
-    <p>انضم إلى خادم ديسكورد الخاص بنا أو راسلنا عبر البريد الإلكتروني.</p>
-    <a href="https://discord.gg/YOUR-DISCORD-LINK" target="_blank" class="btn-discord">انضم إلى ديسكورد</a>
-    <p style="margin-top:15px;">البريد الإلكتروني: <a href="mailto:contact@clcesports.com" style="color:#0ff6d2;">contact@clcesports.com</a></p>
+    <h2 data-key="contact_title">Contact Us</h2>
+    <p data-key="contact_desc">Join our Discord server or email us.</p>
+    <a href="https://discord.gg/YOUR-DISCORD-LINK" target="_blank" class="btn-discord" data-key="btn_discord">Join Discord</a>
+    <p style="margin-top:15px;">Email: <a href="mailto:contact@clcesports.com" style="color:#0ff6d2;">contact@clcesports.com</a></p>
   </section>
 </main>
 
 <footer>
-  <p>© 2025 CLC Esports. جميع الحقوق محفوظة.</p>
+  <p>© 2025 CLC Esports. All rights reserved.</p>
 </footer>
 
-</body>
-</html>
+<script>
+  const translations = {
+    en: {
+      nav_about: "About Us",
+      nav_games: "Games",
+      nav_fortnite: "Fortnite Players",
+      nav_contact: "Contact",
+      main_title: "CLC Esports",
+      main_description: "CLC Esports is a professional esports team with outstanding players competing in global tournaments and delivering top performance.",
+      games_title: "Our Games",
+      game_1: "Fortnite",
+      game_2: "Valorant",
+      game_3: "Rocket League",
+      game_4: "League of Legends",
+      game_5: "Call of Duty",
+      players_title: "Fortnite Players",
+      col_name: "Name",
+      col_pr: "PR",
+      col_earn: "Earnings",
+      col_nation: "Nation",
+      col_age: "Age",
+      contact_title: "Contact Us",
+      contact_desc: "Join our Discord server or email us.",
+      btn_discord: "Join Discord"
+    },
+    ar: {
+      nav_about: "من نحن",
+      nav_games: "الألعاب",
+      nav_fortnite: "لاعبو فورتنايت",
+      nav_contact: "تواصل معنا",
+      main_title: "CLC Esports",
+      main_description: "فريق CLC Esports هو فريق محترف للرياضات الإلكترونية يضم لاعبين مميزين يشاركون في بطولات عالمية ويقدمون أفضل أداء.",
+      games_title: "ألعابنا",
+      game_1: "فورتنايت",
+      game_2: "فالورانت",
+      game_3: "روكيت ليغ",
+      game_4: "ليج أوف ليجندز",
+      game_5: "كول أوف ديوتي",
+      players_title: "لاعبو فورتنايت",
+      col_name: "الاسم",
+      col_pr: "PR",
+      col_earn: "الأرباح",
+      col_nation: "الجنسية",
+      col_age: "العمر",
+      contact_title: "تواصل معنا",
+      contact_desc: "انضم إلى خادم ديسكورد الخاص بنا أو راسلنا عبر البريد الإلكتروني.",
+      btn_discord: "انضم إلى ديسكورد"
+    },
+    fr: {
+      nav_about: "À propos",
+      nav_games: "Jeux",
+      nav_fortnite: "Joueurs Fortnite",
+      nav_contact: "Contact",
+      main_title: "CLC Esports",
+      main_description: "CLC Esports est une équipe professionnelle d'esports avec des joueurs exceptionnels participant à des tournois mondiaux et offrant des performances de haut niveau.",
+      games_title: "Nos jeux",
+      game_1: "Fortnite",
+      game_2: "Valorant",
+      game_3: "Rocket League",
+      game_4: "League of Legends",
+      game_5: "Call of Duty",
+      players_title: "Joueurs Fortnite",
+      col_name: "Nom",
+      col_pr: "PR",
+      col_earn: "Gains",
+      col_nation: "Nationalité",
+      col_age: "Âge",
+      contact_title: "Contactez-nous",
+      contact_desc: "Rejoignez notre serveur Discord ou envoyez-nous un e-mail.",
+      btn_discord: "Rejoindre Discord"
+    },
+    es: {
+      nav_about: "Sobre Nosotros",
+      nav_games: "Juegos",
+      nav_fortnite: "Jugadores de Fortnite",
+      nav_contact: "Contacto",
+      main_title: "CLC Esports",
+      main_description: "CLC Esports es un equipo profesional de esports con jugadores destacados que compiten en torneos globales y ofrecen un rendimiento superior.",
+      games_title: "Nuestros Juegos",
+      game_1: "Fortnite",
+      game_2: "Valorant",
+      game_3: "Rocket League",
+      game_4: "League of Legends",
+      game_5: "Call of Duty",
+      players_title: "Jugadores de Fortnite",
+      col_name: "Nombre",
+      col_pr: "PR",
+      col_earn: "Ganancias",
+      col_nation: "Nación",
+      col_age: "Edad",
+      contact_title: "Contáctanos",
+      contact_desc: "Únete a nuestro servidor de Discord o envíanos un correo electrónico.",
+      btn_discord: "Unirse a Discord"
+    },
+    de: {
+      nav_about: "Über Uns",
+      nav_games: "Spiele",
+      nav_fortnite: "Fortnite Spieler",
+      nav_contact: "Kontakt",
+      main_title: "CLC Esports",
+      main_description: "CLC Esports ist ein professionelles Esports-Team mit herausragenden Spielern, die an globalen Turnieren teilnehmen und Spitzenleistungen erbringen.",
+      games_title: "Unsere Spiele",
+      game_1: "Fortnite",
+      game_2: "Valorant",
+      game_3: "Rocket League",
+      game_4: "League of Legends",
+      game_5: "Call of Duty",
+      players_title: "Fortnite Spieler",
